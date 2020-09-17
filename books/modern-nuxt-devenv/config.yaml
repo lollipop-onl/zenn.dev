@@ -1,0 +1,5 @@
+title: "イマドキ Nuxt 開発環境構築手順書"
+summary: "TypeScript・Composition API・Linter・GitHub Actionsなどイマドキな Nuxt の開発環境構築の手順をリポジトリの作成からのすべてを説明します。"
+topics: ["typescript", "composition-api", "eslint", "githubactions"]
+published: false
+price: 0 # 有料の場合200〜5000
