@@ -1,0 +1,10 @@
+{
+  "name": "zenn-contents",
+  "version": "1.0.0",
+  "dependencies": {
+    "zenn-cli": "^0.1.21"
+  },
+  "scripts": {
+    "start": "zenn preview --port 9000"
+  }
+}
