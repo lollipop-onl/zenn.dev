@@ -5,6 +5,8 @@
     "zenn-cli": "^0.1.21"
   },
   "scripts": {
-    "start": "zenn preview --port 9000"
+    "start": "zenn preview --port 9000",
+    "new:article": "zenn new:article",
+    "new:book": "zenn new:book"
   }
 }
