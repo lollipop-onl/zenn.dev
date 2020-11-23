@@ -1,5 +1,5 @@
 ---
-title: 出力結果のフィルタリング on Chrome Devtools Console
+title: 出力結果のフィルタリング on Chrome DevTools Console
 emoji: 🍭
 type: tech
 topics: [devtools, EveOneZenn]
