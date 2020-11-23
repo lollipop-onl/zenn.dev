@@ -1,9 +1,9 @@
 ---
-title: Chrome DevTools で出力結果をフィルタリングする
+title: 出力結果のフィルタリング on Chrome Devtools Console
 emoji: 🍭
 type: tech
 topics: [devtools, EveOneZenn]
-published: false
+published: true
 ---
 
 # はじめに
