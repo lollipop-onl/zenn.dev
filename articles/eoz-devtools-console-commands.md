@@ -1,5 +1,5 @@
 ---
-title: Google DevTools Console で使える便利なコマンド
+title: Chrome DevTools Console で使える便利なコマンド
 emoji: 🍭
 type: tech
 topics: [devtools, EveOneZenn]
