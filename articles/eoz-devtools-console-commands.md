@@ -153,20 +153,28 @@ JavaScript の CPUプロファイリング を記録します。
 
 ## clear()
 
+![](https://storage.googleapis.com/zenn-user-upload/avolcyn0q3iow49tuajtejqhkngy)
+
 Console パネルの履歴をクリアします。
 `console.clear()` メソッドと同等の機能です。
 
 ## dir(object)
+
+![](https://storage.googleapis.com/zenn-user-upload/saydv9xpfsccexgvkj1onkxnodde)
 
 指定したオブジェクトを JSON表現 で表示します。
 `console.dir()` メソッドと同等の機能です。
 
 ## dirxml(object)
 
+![](https://storage.googleapis.com/zenn-user-upload/xr1wwdlserbzw1m1vpu5gxylwla7)
+
 指定したオブジェクトを XML表現 で表示します。
 `console.dirxml()` メソッドと同等の機能です。
 
 ## keys(object) / values(object)
+
+![](https://storage.googleapis.com/zenn-user-upload/zyvhi7evt2hn9qkryml3wrd8e9io)
 
 指定したオブジェクトのキーおよび値の配列を取得します。
 `Object.keys()` メソッド・ `Object.values()` メソッドと同等の機能です。
@@ -177,6 +185,16 @@ Console パネルの履歴をクリアします。
 
 データを表の形式で表示します。
 `console.table()` メソッドとほぼ同等の機能ですが、表示する列を指定できます。
+
+# おまけ
+
+## 出力された値を使用する
+
+![](https://storage.googleapis.com/zenn-user-upload/eyp8sb7ath8ywpitfz7z8c17ik7t)
+
+Console パネルに出力されたデータを 右クリック → `Store as global variable` とすると、 `temp[N]` というグローバル変数にデータが代入されます。
+
+実際のコードから出力されたデータを加工したり転用したりするときに便利です。
 
 # 参考
 
