@@ -3,7 +3,7 @@ title: Google DevTools Console で使える便利なコマンド
 emoji: 🍭
 type: tech
 topics: [devtools, EveOneZenn]
-published: false
+published: true
 ---
 
 # はじめに
