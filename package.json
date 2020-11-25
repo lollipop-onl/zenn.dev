@@ -2,7 +2,7 @@
   "name": "zenn-contents",
   "version": "1.0.0",
   "dependencies": {
-    "zenn-cli": "^0.1.21"
+    "zenn-cli": "^0.1.57"
   },
   "scripts": {
     "start": "zenn preview --port 9000",
