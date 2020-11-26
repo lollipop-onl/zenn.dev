@@ -15,6 +15,9 @@ published: true
 
 https://developers.google.com/web/tools/chrome-devtools/console/utilities?hl=ja
 
+**前回：**
+https://zenn.dev/lollipop_onl/articles/eoz-nuxt-with-ts4-1
+
 # 参照系
 
 ## $_

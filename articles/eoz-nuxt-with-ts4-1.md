@@ -13,6 +13,9 @@ published: true
 まだ公式でサポートされていない Nuxt で TypeScript 4.1 を使用するまでのセットアップをまとめます。
 `@nuxt/typescript-build` が公式に TypeScript 4.1 をサポートするまでの間は、ここで詳細する手順でプロジェクトをセットアップする必要があります。
 
+**前回：**
+https://zenn.dev/lollipop_onl/articles/eoz-devtools-console-filter
+
 # TL;DR
 
 `typescript` と `ts-loader` を手動インストールする。
