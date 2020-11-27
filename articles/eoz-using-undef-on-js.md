@@ -1,20 +1,21 @@
 ---
-title: JavaScriptで undefined の使用が推奨されない理由
+title: JavaScript で undefined の使用が推奨されない理由
 emoji: 🍭
 type: tech
-topics: [EveOneZenn]
-published: false
+topics: [javascript, EveOneZenn]
+published: true
 ---
 
 # はじめに
 
-この記事は [#EveOneZenn](https://zenn.dev/topics/eveonezenn) (Everyday One Zenn) の日目です。
+この記事は [#EveOneZenn](https://zenn.dev/topics/eveonezenn) (Everyday One Zenn) の５日目です。
 
 JavaScript で `undefined` を値として使用することが推奨されない理由についてまとめます。
 
-（過去に別所で公開していた記事の加筆版です）です。
+（過去に別所で公開していた記事の加筆版です）
 
 **前回：*
+https://zenn.dev/lollipop_onl/articles/eoz-ts-no-unchecked-indexed-access
 
 # TypeScript Deep Drive の見解
 

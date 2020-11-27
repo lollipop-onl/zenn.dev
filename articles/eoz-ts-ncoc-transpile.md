@@ -8,12 +8,12 @@ published: false
 
 # はじめに
 
-この記事は [#EveOneZenn](https://zenn.dev/topics/eveonezenn) (Everyday One Zenn) の２日目です。
+この記事は [#EveOneZenn](https://zenn.dev/topics/eveonezenn) (Everyday One Zenn) の日目です。
 
 TypeScript 3.7 で導入された Optional Chaining と Nullish Coalescing （ともに ES2020 で採用）がどのようにトランスパイルされるかをまとめます。
 
 **前回：**
-https://zenn.dev/lollipop_onl/articles/eoz-ts-no-unchecked-indexed-access
+
 
 # Optional Chaining と Nullish Coalescing について
 
