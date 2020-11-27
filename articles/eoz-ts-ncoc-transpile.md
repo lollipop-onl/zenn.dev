@@ -1,5 +1,5 @@
 ---
-title: TS で Optional Chaining と Nullish Coalescing はどのようにトランスパイルされるか
+title: TS で Optional Chaining と Nullish Coalescing はどう出力されるか
 emoji: 🍭
 type: tech
 topics: [typescript, EveOneZenn]
