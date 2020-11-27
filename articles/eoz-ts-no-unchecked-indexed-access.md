@@ -8,7 +8,7 @@ published: true
 
 # はじめに
 
-この記事は #EveOneZenn (Everyday One Zenn) の４日目です。
+この記事は [#EveOneZenn](https://zenn.dev/topics/eveonezenn) (Everyday One Zenn) の４日目です。
 
 TypeScript 4.1 で新たに追加された `--noUncheckedIndexedAccess` オプションを紹介します。
 

@@ -8,7 +8,7 @@ published: false
 
 # はじめに
 
-この記事は #EveOneZenn (Everyday One Zenn) の２日目です。
+この記事は [#EveOneZenn](https://zenn.dev/topics/eveonezenn) (Everyday One Zenn) の２日目です。
 
 TypeScript 3.7 で導入された Optional Chaining と Nullish Coalescing （ともに ES2020 で採用）がどのようにトランスパイルされるかをまとめます。
 

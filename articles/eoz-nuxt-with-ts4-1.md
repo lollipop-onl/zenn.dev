@@ -8,7 +8,7 @@ published: true
 
 # はじめに
 
-この記事は #EveOneZenn (Everyday One Zenn) の２日目です。
+この記事は [#EveOneZenn](https://zenn.dev/topics/eveonezenn) (Everyday One Zenn) の２日目です。
 
 まだ公式でサポートされていない Nuxt で TypeScript 4.1 を使用するまでのセットアップをまとめます。
 `@nuxt/typescript-build` が公式に TypeScript 4.1 をサポートするまでの間は、ここで詳細する手順でプロジェクトをセットアップする必要があります。
