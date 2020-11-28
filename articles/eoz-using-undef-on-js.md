@@ -14,7 +14,7 @@ JavaScript で `undefined` を値として使用することが推奨されな�
 
 （過去に別所で公開していた記事の加筆版です）
 
-**前回：*
+**前回：**
 https://zenn.dev/lollipop_onl/articles/eoz-ts-no-unchecked-indexed-access
 
 # TypeScript Deep Drive の見解
