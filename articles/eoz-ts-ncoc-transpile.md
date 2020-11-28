@@ -3,22 +3,22 @@ title: TS で Optional Chaining と Nullish Coalescing はどう出力される�
 emoji: 🍭
 type: tech
 topics: [typescript, EveOneZenn]
-published: false
+published: true
 ---
 
 # はじめに
 
-この記事は [#EveOneZenn](https://zenn.dev/topics/eveonezenn) (Everyday One Zenn) の日目です。
+この記事は [#EveOneZenn](https://zenn.dev/topics/eveonezenn) (Everyday One Zenn) の６日目です。
 
 TypeScript 3.7 で導入された Optional Chaining と Nullish Coalescing （ともに ES2020 で採用）がどのようにトランスパイルされるかをまとめます。
 
 **前回：**
-
+https://zenn.dev/lollipop_onl/articles/eoz-using-undef-on-js
 
 # Optional Chaining と Nullish Coalescing について
 
-Optional Chaining と Nullish Coalescing は TypeScript が ECMAScript に先行して 3.7 で導入したシンタックスです。
-これらのシンタックスは ES2020 で正規に ECMAScript に採用されました。
+Optional Chaining と Nullish Coalescing は TypeScript が ECMAScript に先行して TypeScript 3.7 で導入したシンタックスです。
+これらのシンタックスは ECMAScript でも ES2020 で正規に採用されました。
 
 ## Optional Chaining
 
