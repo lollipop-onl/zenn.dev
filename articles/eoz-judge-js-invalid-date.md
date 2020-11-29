@@ -89,9 +89,7 @@ isInvalidDate(new Date('aaa'));
 // js: true
 ```
 
-<!--
-
-## toString を使用する
+<!-- ## toString を使用する
 
 `Invalid Date` なインスタンスを文字列に変換すると `"Invalid Date"` という文字列が得られます。
 これを利用して次のように `Invalid Date` 判定できます。
@@ -106,9 +104,7 @@ isInvalidDate(new Date('aaa'));
 // js: true
 ```
 
-ただ、アプリケーションに `"Invalid Date"` という文字列を持たなければならないため、
-
--->
+ただ、アプリケーションに `"Invalid Date"` という文字列を持たなければならないため、 -->
 
 # 参考
 
