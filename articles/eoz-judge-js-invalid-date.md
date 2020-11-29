@@ -1,5 +1,5 @@
 ---
-title: JavaScript の Date が Invalid Date かを判定する
+title: JavaScript で Invalid Date を判定する
 emoji: 🍭
 type: tech
 topics: [javascript, EveOneZenn]
