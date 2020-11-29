@@ -89,23 +89,6 @@ isInvalidDate(new Date('aaa'));
 // js: true
 ```
 
-<!-- ## toString を使用する
-
-`Invalid Date` なインスタンスを文字列に変換すると `"Invalid Date"` という文字列が得られます。
-これを利用して次のように `Invalid Date` 判定できます。
-
-```js
-const isInvalidDate = (date: Date) => date.toString() === 'Invalid Date';
-
-isInvalidDate(new Date('2020-11-29'));
-// js: false
-
-isInvalidDate(new Date('aaa'));
-// js: true
-```
-
-ただ、アプリケーションに `"Invalid Date"` という文字列を持たなければならないため、 -->
-
 # 参考
 
 * [Date.prototype.getTime() - JavaScript | MDN](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date/getTime)
