@@ -50,7 +50,15 @@ https://zenn.dev/lollipop_onl/articles/eoz-judge-js-invalid-date
 javascript:(()=>{const e=document.title,t=document.createElement("textarea");t.textContent=e,document.body.appendChild(t),t.select(),document.execCommand("copy"),document.body.removeChild(t),console.log(`Copyed this website title "${e}"`)})();
 ```
 
+このページでの実行結果：
+
+```
+表示しているページのタイトルをコピーするブックマークレット
+```
+
 # 表示しているページのタイトルとリンクを Markdown でコピーするブックマークレット
+
+Markdown で記事を執筆しているときに、リンク先をタイトルとともに掲載したいときに便利なブックマークレットです。
 
 ブックマークレット：
 
@@ -58,3 +66,8 @@ javascript:(()=>{const e=document.title,t=document.createElement("textarea");t.t
 javascript:(()=>{const e=`[${document.title}](${location.href})`,t=document.createElement("textarea");t.textContent=e,document.body.appendChild(t),t.select(),document.execCommand("copy"),document.body.removeChild(t),console.log(`Copyed this website title and URL: ${e}`)})();
 ```
 
+このページでの実行結果：
+
+```md
+[表示しているページのタイトルをコピーするブックマークレット](https://zenn.dev/lollipop_onl/articles/eoz-ts-filter-nullable)
+```
