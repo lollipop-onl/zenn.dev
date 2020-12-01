@@ -12,6 +12,26 @@ published: false
 
 CSS設計のひとつである rscss を CSS Modules (React向け)にアレンジしてみたので紹介します。
 
+紹介する規約を使った場合、下記のようなクラス名で CSS Modules を運用できます。
+
+```JSX
+import React from 'react';
+import cn from 'classnames';
+import styles from 'styles.module.scss';
+
+const Component = (props) => (
+  <button
+    className={cn(
+      styles.searchButton,
+      { [styles.Disabled]: props.disabled }
+    )}
+  >
+    <span className={styles.icon}>🔎</span>
+    <span className={styles.text}>Search</span>
+  </button>
+);
+```
+
 **前回：**
 https://zenn.dev/lollipop_onl/articles/eoz-copy-url-bookmarklet
 
@@ -224,7 +244,7 @@ import React from 'react';
 import cn from 'classnames';
 import styles from 'styles.module.scss';
 
-const component = (props) => (
+const Component = (props) => (
   <button
     className={cn(
       styles['search-button'],
@@ -288,7 +308,7 @@ import React from 'react';
 import cn from 'classnames';
 import styles from 'styles.module.scss';
 
-const component = (props) => (
+const Component = (props) => (
   <button
     className={cn(
       styles.searchButton,
