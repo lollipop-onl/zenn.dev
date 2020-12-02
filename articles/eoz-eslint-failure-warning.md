@@ -28,7 +28,7 @@ $ eslint --ext .js --max-warnings 3 .
 
 このオプションの初期値は `-1` （上限なし）です。
 
-見出しの通り、ひとつでも warning がある場合にチェックを Failure させたい場合は、オプションの値は `0` とします。
+見出しの通り、ひとつでも warning がある場合にチェックを Failure させたい場合は、オプションの値を `0` にします。
 
 ```sh
 $ eslint --ext .js --max-warnings 0 .
