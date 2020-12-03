@@ -115,3 +115,7 @@ jobs:
 ```
 
 例として示した textlint の他にも ESLint 、 stylelint など各種 Linter で同様に修正分の反映が自動化できます。
+
+# 参考
+
+* [GitHub Actions のコンテキストおよび式の構文 - GitHub Docs](https://docs.github.com/ja/free-pro-team@latest/actions/reference/context-and-expression-syntax-for-github-actions)
