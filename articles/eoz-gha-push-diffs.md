@@ -3,7 +3,7 @@ title: GitHub Actions でワークフロー中に発生した差分を Push す�
 emoji: 🍭
 type: tech
 topics: [githubactions, EveOneZenn]
-published: false
+published: true
 ---
 
 # はじめに
