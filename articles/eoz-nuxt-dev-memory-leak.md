@@ -83,8 +83,8 @@ https://nodejs.org/api/cli.html#cli_max_old_space_size_size_in_megabytes
 
 ここでは、8GB (8192MB) をメモリ上限として設定します。
 
-```
-NODE_OPTIONS="--max-old-space-size=8192" nuxt
+```sh
+$ NODE_OPTIONS="--max-old-space-size=8192" nuxt
 ```
 
 ## ForkTsCheckerWebpackPlugin のメモリ上限を上げる
