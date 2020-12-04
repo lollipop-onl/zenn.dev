@@ -42,8 +42,8 @@ Nuxt + `@nuxt/typescript-build` でローカルサーバー起動中、次のよ
     0: ExitFrame [pc: 0x100950919]
     1: StubFrame [pc: 0x10092f465]
 Security context: 0x124cd89008d1 <JSObject>
-    2: exec [0x124cd89149b1](this=0x124cf1ed06e9 <JSRegExp <String[33]: ^\/en\/service\/meal(?:\/(?=$))?$>>,0x124cb6a0fbf1 <String[15]: /ja/payment/3ds>)
-    3: 0x124c8d8c4c51 <Symbol: Symbol.match>(aka [Symbol.match]) [0x124cd8914899](this=0x124cf1ed06e9 <JSRegExp <String[33]: ^\/en\/service\/meal(?:\/(?=$))?$>>,0x124cb6a0fbf...
+    2: exec [0x124cd89149b1](this=0x124cf1ed06e9 <JSRegExp <String[33]: ^******$>>,0x124cb6a0fbf1 <String[15]: /ja/payment/3ds>)
+    3: 0x124c8d8c4c51 <Symbol: Symbol.match>(aka [Symbol.match]) [0x124cd8914899](this=0x124cf1ed06e9 <JSRegExp <String[33]: ^*****$>>,0x124cb6a0fbf...
 
 FATAL ERROR: CALL_AND_RETRY_LAST Allocation failed - JavaScript heap out of memory
  1: 0x100080c68 node::Abort() [/Users/USERNAME/.nodebrew/node/v12.16.1/bin/node]
@@ -68,7 +68,7 @@ error Command failed with exit code 1.
 info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
 ```
 
-このエラーログは実行中の Node.js プロセスがメモリ不足でクラッシュする際に出力されるものです。
+このエラーログ（ `JavaScript heap out of memory` ）は実行中の Node.js プロセスがメモリ不足でクラッシュする際に出力されるものです。
 
 # 対応
 
