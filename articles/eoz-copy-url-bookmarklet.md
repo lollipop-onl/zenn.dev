@@ -8,7 +8,7 @@ published: true
 
 # はじめに
 
-この記事は [#EveOneZenn](https://zenn.dev/topics/eveonezenn) (Everyday One Zenn) の８日目です。
+この記事は [#EveOneZenn](https://zenn.dev/topics/eveonezenn) (Everyday One Zenn) vol.08 です。
 
 表示しているページのタイトルをコピーするブックマークレットを紹介します。
 

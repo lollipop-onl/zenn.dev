@@ -8,7 +8,7 @@ published: true
 
 # はじめに
 
-この記事は [#EveOneZenn](https://zenn.dev/topics/eveonezenn) (Everyday One Zenn) の10日目です。
+この記事は [#EveOneZenn](https://zenn.dev/topics/eveonezenn) (Everyday One Zenn) vol.10 です。
 
 ESLint でチェック結果に warning が存在する場合、チェック自体を Failure させる方法を紹介します。
 

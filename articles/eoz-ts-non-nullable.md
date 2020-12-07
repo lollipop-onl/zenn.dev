@@ -12,7 +12,7 @@ published: false
 
 配列から nullable な要素を除去するフィルタを TypeScript で実装する方法をまとめます。
 
-**前回：*
+**前回：**
 https://zenn.dev/lollipop_onl/articles/eoz-nuxt-dev-memory-leak
 
 # 配列から nullable な値を除去する
@@ -88,7 +88,7 @@ const activeUserNames = users
 // ts: string[]
 ```
 
-# ユーザー定義の Type Guard の注意
+# ユーザー定義の Type Guard を使う際の注意
 
 ユーザー定義の Type Guard は実際の処理で返される値と型定義がずれることがあります。
 

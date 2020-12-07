@@ -8,7 +8,7 @@ published: true
 
 # はじめに
 
-この記事は [#EveOneZenn](https://zenn.dev/topics/eveonezenn) (Everyday One Zenn) の７日目です。
+この記事は [#EveOneZenn](https://zenn.dev/topics/eveonezenn) (Everyday One Zenn) vol.07 です。
 
 JavaScript の Date クラスが返す Invalid Date を判定する方法についてまとめます。
 

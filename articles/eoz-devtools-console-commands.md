@@ -8,7 +8,7 @@ published: true
 
 # はじめに
 
-この記事は [#EveOneZenn](https://zenn.dev/topics/eveonezenn) (Everyday One Zenn) の３日目です。
+この記事は [#EveOneZenn](https://zenn.dev/topics/eveonezenn) (Everyday One Zenn) vol.03 です。
 
 今回は Chrome DevTools の Console で使用できるコマンド（ Utilities API ）についてまとめます。
 なお、紹介するコマンドはすべて、 Console パネルから実行した場合のみ使用できます。

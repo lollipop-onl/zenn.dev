@@ -8,7 +8,7 @@ published: true
 
 # はじめに
 
-この記事は [#EveOneZenn](https://zenn.dev/topics/eveonezenn) (Everyday One Zenn) の11日目です。
+この記事は [#EveOneZenn](https://zenn.dev/topics/eveonezenn) (Everyday One Zenn) vol.11 です。
 
 GitHub Actions でワークフローのジョブ実行中に発生した差分をリポジトリへ Push する方法を紹介します。
 

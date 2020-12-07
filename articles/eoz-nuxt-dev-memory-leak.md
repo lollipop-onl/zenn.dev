@@ -8,7 +8,7 @@ published: true
 
 # はじめに
 
-この記事は [#EveOneZenn](https://zenn.dev/topics/eveonezenn) (Everyday One Zenn) の12日目です。
+この記事は [#EveOneZenn](https://zenn.dev/topics/eveonezenn) (Everyday One Zenn) vol.12 です。
 
 Nuxt の開発サーバーがメモリ不足で落ちた際の暫定的な対処方法を紹介します。
 なお、ここで紹介する方法は事象を完全に回避するものではなく、事象の発生までの猶予を広げるものとなります。
