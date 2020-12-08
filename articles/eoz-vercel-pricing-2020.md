@@ -1,9 +1,9 @@
 ---
-title: Vercel の料金形態と内容について調べてみた - 2020冬
+title: Vercel の料金形態と内容についてまとめた - 2020冬
 emoji: 🍭
 type: tech
 topics: [vercel, EveOneZenn]
-published: false
+published: true
 ---
 
 # はじめに
