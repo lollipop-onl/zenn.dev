@@ -10,7 +10,7 @@ published: false
 
 この記事は [#EveOneZenn](https://zenn.dev/topics/eveonezenn) (Everyday One Zenn) vol.15 です。
 
-Chrome DevTools に組み込まれている Rendering タブについてまとめます。
+Chrome DevTools に組み込まれている、ページの描画に関する機能を提供する Rendering タブについてまとめます。
 
 **前回：**
 https://zenn.dev/lollipop_onl/articles/eoz-vercel-pricing-2020
