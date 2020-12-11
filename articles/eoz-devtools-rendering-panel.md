@@ -15,8 +15,6 @@ Chrome DevTools に組み込まれている、ページの描画に関する機�
 **前回：**
 https://zenn.dev/lollipop_onl/articles/eoz-vercel-pricing-2020
 
-# Rendering タブとは
-
 # Rendering タブを表示する
 
 Chrome DevTools の Rendering タブは メニュー（三点ドット）→ More tools → Rendering から表示できます。
