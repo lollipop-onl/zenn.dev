@@ -3,7 +3,7 @@ title: Sapper の goto() で遷移したときにフォーカスを維持する
 emoji: 🍬
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: [svelte, sapper]
-published: false
+published: true
 ---
 
 Svelte のフレームワーク、Sapper には Svelte にないルーティングに関する一式の機能が含まれています。
