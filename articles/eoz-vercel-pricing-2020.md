@@ -21,6 +21,8 @@ https://vercel.com/
 
 **Note:** 2021/02/06 - 禁止されている用途について追記
 
+**Note:** 2021/02/11 - Hobby プランにおける広告を掲載した、個人ブログでの利用について追記
+
 **前回：**
 https://zenn.dev/lollipop_onl/articles/eoz-ts-non-nullable
 
@@ -53,6 +55,27 @@ https://vercel.com/pricing
 無料（従量課金なし）
 
 **※個人的かつ非営利な目的でのみの利用に限定**
+
+### 広告を掲載した、個人ブログでの利用について
+
+:::message alert
+この内容は 2021/02/08 時点の情報です。最新の情報については Vercel へお問い合わせください。
+
+[Contact – Vercel](https://vercel.com/contact)
+:::
+
+[@nyanko](https://zenn.dev/nyanko) さんにコメントにて Hobby プランで運営している個人ブログへの広告掲載が可能かを問い合わせた結果を共有していただきました。
+
+[@nyanko さんのコメント](https://zenn.dev/lollipop_onl/articles/eoz-vercel-pricing-2020#comment-e8e323343db657)より
+
+> Perfectly possible and allowed. Hobby accounts are for personal use, so you need to respect the limits in the Fair Use Policy.
+In case your site receives more traffic, we will ask you to use a Pro account.
+> 
+>  以下、 DeepL での翻訳：
+> *"完全に可能であり、許可されています。ホビーアカウントは個人利用のためのものですので、フェアユースポリシーの制限を尊重する必要があります。
+あなたのサイトがより多くのトラフィックを受信した場合、我々はあなたにProアカウントを使用するようにお願いします。"*
+
+Hobby プランでの広告掲載は、個人利用の範疇かつ低負荷な用途であれば許可されているようです
 
 ## 機能
 
