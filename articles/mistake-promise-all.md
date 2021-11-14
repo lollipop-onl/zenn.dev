@@ -26,7 +26,7 @@ const asyncFn = async () => {};
 
 const results = await Promise.all([
   // ①
-  syncFn();
+  syncFn(),
   
   // ②
   asyncFn(),
