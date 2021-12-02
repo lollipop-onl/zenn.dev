@@ -10,7 +10,8 @@ published: true
 
 この記事は [個人的なアドベントカレンダー2021](https://zenn.dev/lollipop_onl/scraps/691bacd85c4c80) の1日目です。
 
-**次回：** 未定
+**次回：**
+https://zenn.dev/lollipop_onl/articles/ac21-live-libs
 
 # postcss-preset-env
 
