@@ -26,7 +26,7 @@ https://zenn.dev/lollipop_onl/articles/ac21-future-css-with-postcss
 
 ## Lodash
 
-lodash.com/
+https://lodash.com/
 
 ![](https://storage.googleapis.com/zenn-user-upload/d5b74ead3fd2-20211202.png)
 
