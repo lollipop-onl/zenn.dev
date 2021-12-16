@@ -82,7 +82,7 @@ new Date('aaa').getTime();
 :::message
 **2021/12/16**
 Number.isNaN(date) では正しく動作しない旨の指摘を受け、 isInvalidDate 関数の内容を修正しました。
-:pray: [latica](https://zenn.dev/latica)さんの[コメント](https://zenn.dev/link/comments/49d4790dcf9200)
+🙏 [latica](https://zenn.dev/latica)さんの[コメント](https://zenn.dev/link/comments/49d4790dcf9200)
 :::
 
 ```ts
