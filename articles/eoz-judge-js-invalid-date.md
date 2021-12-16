@@ -79,8 +79,12 @@ new Date('aaa').getTime();
 
 これらを利用すると、Date クラスのインスタンスを `Number.isNaN` メソッドに渡し `true` が返されれば、その値は `Invalid Date` であったということが判定できます。
 
+?> **2021/12/16**  
+Number.isNaN(date) では正しく動作しない旨の指摘を受け、 isInvalidDate 関数の内容を修正しました。  
+[latica](https://zenn.dev/latica)さんの[コメント](https://zenn.dev/link/comments/49d4790dcf9200)
+
 ```ts
-const isInvalidDate = (date: Date) => Number.isNaN(date);
+const isInvalidDate = (date: Date) => Number.isNaN(date.getTime());
 
 isInvalidDate(new Date('2020-11-29'));
 // js: false
