@@ -23,6 +23,8 @@ https://vercel.com/
 
 **Note:** 2021/02/11 - Hobby プランにおける広告を掲載した、個人ブログでの利用について追記
 
+**Note:** 2022/02/26 - Hobby プランにおける広告掲載の利用不可について追記
+
 **前回：**
 https://zenn.dev/lollipop_onl/articles/eoz-ts-non-nullable
 
@@ -56,13 +58,29 @@ https://vercel.com/pricing
 
 **※個人的かつ非営利な目的でのみの利用に限定**
 
+商用利用の定義については [Fair Use Policy の Commercial Usage](https://vercel.com/docs/concepts/limits/fair-use-policy#commercial-usage) をご確認ください。
+
 ### 広告を掲載した、個人ブログでの利用について
 
-:::message alert
-この内容は 2021/02/08 時点の情報です。最新の情報については Vercel へお問い合わせください。
+2021/02/08 より「広告を掲載していても、パーソナルな用途であれば問題ない」旨の記載をしておりましたが、規約上誤りであったため修正します。
+誤情報を記載してしまい申し訳ございません。
 
-[Contact – Vercel](https://vercel.com/contact)
-:::
+Vercel の利用規約の商用利用に該当する用途について以下の記載があります。
+
+> The inclusion of advertisements, including but not limited to online advertising platforms like Google AdSense.
+> [Fair Use Policy – Vercel Docs](https://vercel.com/docs/concepts/limits/fair-use-policy#commercial-usage)
+> 
+> *Google AdSenseのようなオンライン広告プラットフォームを含むがこれに限定されない広告を含めること。* (DeepL 翻訳)
+
+そのため、 Hobby プランにて広告掲載を行っている場合は、以下の対処を行う必要があります。
+
+- Vercel Pro プランに変更する
+- 広告掲載を取りやめる
+- Vercel 以外の商用利用の認められているサービスへ移行する
+
+[@smikitky](https://zenn.dev/smikitky) さん、[コメントでのご指摘](https://zenn.dev/link/comments/11c56fd042ebe6) ありがとうございました。
+
+:::details 以前の記載内容
 
 [@nyanko](https://zenn.dev/nyanko) さんにコメントにて Hobby プランで運営している個人ブログへの広告掲載が可能かを問い合わせた結果を共有していただきました。
 
@@ -76,6 +94,8 @@ In case your site receives more traffic, we will ask you to use a Pro account.
 あなたのサイトがより多くのトラフィックを受信した場合、我々はあなたにProアカウントを使用するようにお願いします。"*
 
 Hobby プランでの広告掲載は、個人利用の範疇かつ低負荷な用途であれば許可されているようです
+
+:::
 
 ## 機能
 
