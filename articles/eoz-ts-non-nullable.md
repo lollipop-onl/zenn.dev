@@ -100,11 +100,11 @@ const arr = [0, 1, 'hello', false, null, undefined] as const;
 // ts: (number | string | boolean | null | undefined)[]
 
 arr.filter((item): item is NonNullable<typeof item> => !!item);
-// js: [0, 1, 'hello']
+// js: [1, 'hello']
 // ts: (number | string | boolean)[]
 ```
 
-JavaScript ランタイムでは `false` も除去されていますが、型定義上では `boolean` も返ることになってしまっています。
+JavaScript ランタイムでは `false` や `0` も除去されていますが、型定義上では `boolean` も返ることになってしまっています。
 
 このような実装と型の乖離を起こさないよう、ユーザー定義の Type Guard を使用する際は注意して実装しましょう。
 
