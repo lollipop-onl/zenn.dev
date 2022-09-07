@@ -37,7 +37,7 @@ https://zenn.dev/lollipop_onl/articles/eoz-copy-url-bookmarklet
 
 # rscss とは
 
-https://rscss.io/
+https://ricostacruz.com/rscss/
 
 > Styling CSS without losing your sanity
 
@@ -52,18 +52,18 @@ rscss は BEM と似た `Components`・`Elements`・`Variants` をベースの�
 * Components と Elements は必ず親子セレクタ (`>`) で指定する
 * Components のクラス名は `-` を含む２単語以上で
   * 例： `.search-form`・`.account-profile-card`
-  * [About components](https://rscss.io/components.html)
+  * [About components](https://ricostacruz.com/rscss/components.html)
 * Elements のクラス名は `-` を含まないなるべく１単語で
   * 例： `.title`・`.firstname`
-  * [Elements](https://rscss.io/elements.html)
+  * [Elements](https://ricostacruz.com/rscss/elements.html)
 * Variants のクラス名は `-` からはじめる
   * 例： `.-primary`・`.-disabled`・`.-small`
-  * [Variants](https://rscss.io/variants.html)
+  * [Variants](https://ricostacruz.com/rscss/variants.html)
 * Helpers のクラス名は `_` からはじめる
   * 例： `._center`・`._unmargin`・`._hidden-sm`
-  * [Helpers](https://rscss.io/helpers.html)
+  * [Helpers](https://ricostacruz.com/rscss/helpers.html)
 
-[Layouts](https://rscss.io/layouts.html) という考えもありますが、ここでは説明を省きます。
+[Layouts](https://ricostacruz.com/rscss/layouts.html) という考えもありますが、ここでは説明を省きます。
 ## BEM との比較
 
 rscss を構成する要素は BEM に非常に似ています。
@@ -350,6 +350,6 @@ rules:
 
 # 参考
 
-* [rscss](https://rscss.io/)
+* [rscss](https://ricostacruz.com/rscss/)
 * [rstacruz/stylelint-rscss: Validate CSS with RSCSS conventions](https://github.com/rstacruz/stylelint-rscss)
 * [[BEM to RSCSS] Quick Migration Guide - Qiita](https://qiita.com/simochee/items/3e537f530ca94ce6fb3a)
