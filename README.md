@@ -1,3 +1,1 @@
-# lollipop.onl's Zenn contents
-
-👉 https://zenn.dev/lollipop_onl
+<h1 align="center"><img src="zenn-logo.svg" style="height: 24px"> Zenn contents</h1>
