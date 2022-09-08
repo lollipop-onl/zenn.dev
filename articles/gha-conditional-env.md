@@ -3,7 +3,7 @@ title: GitHub Actions で動的な環境変数を実現する
 emoji: 🍬
 type: tech
 topics: [githubactions]
-published: false
+published: true
 ---
 
 # やりたいこと
