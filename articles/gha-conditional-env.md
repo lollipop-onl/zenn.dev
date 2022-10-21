@@ -6,6 +6,10 @@ topics: [githubactions]
 published: true
 ---
 
+:::message
+**2022/10/21追記： `fronJSON` とするところを `toJSON` と記載していたので修正しました。**
+:::
+
 # やりたいこと
 
 GitHub Actions のワークフローで、ある値を元に環境変数を切り替えたくなるときがたまにあります。
