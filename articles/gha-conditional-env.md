@@ -37,13 +37,13 @@ env:
 
 なお、この記事で紹介する表現は環境変数だけではなく、アクションの引数やコマンドの一部としても同様の実装を利用できます。
 
-# toJSON を使う
+# fromJSON を使う
 
-GitHub Actions のワークフローでは `toJSON` という文字列を JSON に変換するメソッドが利用できます。
+GitHub Actions のワークフローでは `fromJSON` という文字列を JSON に変換するメソッドが利用できます。
 
-https://docs.github.com/ja/enterprise-cloud@latest/actions/learn-github-actions/expressions#tojson
+https://docs.github.com/ja/enterprise-cloud@latest/actions/learn-github-actions/expressions#fromJSON
 
-`toJSON` で JSON にしたものは JavaScript での操作と同様、プロパティアクセスができます。
+`fromJSON` で JSON にしたものは JavaScript での操作と同様、プロパティアクセスができます。
 
 これを使うことで、プロパティに条件となる文字列を設定した JSON から値を取得して期待の挙動を実現できます。
 
@@ -63,7 +63,7 @@ on:
 
 env:
   NEXT_PUBLIC_API_ORIGIN: |
-    ${{ toJSON('{
+    ${{ fromJSON('{
       "開発": "https://dev.api.example.com",
       "検証": "https://stg.api.example.com",
       "本番": "https://api.example.com"
@@ -84,7 +84,7 @@ env:
 env:
   # 検証・本番以外では開発の値を使用したい
   NEXT_PUBLIC_API_ORIGIN: |
-    ${{ toJSON('{
+    ${{ fromJSON('{
       "検証": "https://stg.api.example.com",
       "本番": "https://api.example.com"
     }')[github.event.inputs.environment] || 'https://dev.api.example.com' }}\
@@ -92,7 +92,7 @@ env:
 
 # 値にシークレットや他の環境変数を使う
 
-`toJSON` の値にシークレットや他の環境変数を使いたい場合は `format` という文字列中のプレースホルダーを置き換えされるメソッドを利用します。
+`fromJSON` の値にシークレットや他の環境変数を使いたい場合は `format` という文字列中のプレースホルダーを置き換えされるメソッドを利用します。
 
 https://docs.github.com/ja/actions/learn-github-actions/expressions#format
 
@@ -101,7 +101,7 @@ env:
   STAGING_API_ORIGIN: https://stg-api.example.com
   # 検証・本番以外では開発の値を使用したい
   NEXT_PUBLIC_API_ORIGIN: |
-    ${{ toJSON(
+    ${{ fromJSON(
       format(
         '{{
           "検証": "{0}",
