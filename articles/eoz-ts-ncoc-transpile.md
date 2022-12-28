@@ -7,12 +7,12 @@ published: true
 ---
 
 :::message
-2022/12/28 現在、 Optional Chaining と Nullish Coalescing のブラウザサポートが進んだため、ほとんどの場面でトランスパイルしなくてよくなりました。
+**2022/12/28 追記：** Optional Chaining と Nullish Coalescing のブラウザサポートが進んだため、ほとんどの場面でトランスパイルしなくてよくなりました。
+:::
 
 https://caniuse.com/mdn-javascript_operators_optional_chaining
 
 https://caniuse.com/mdn-javascript_operators_nullish_coalescing
-:::
 
 # はじめに
 
