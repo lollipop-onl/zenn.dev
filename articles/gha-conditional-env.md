@@ -7,7 +7,13 @@ published: true
 ---
 
 :::message
-**2022/10/21追記： `fronJSON` とするところを `toJSON` と記載していたので修正しました。**
+**2023/03/13**
+YAML で複数行テキストの末尾に改行が入ることへの対応が正しくない旨の指摘を受け、 YAML のサポートする正しいシンタックスに内容を修正しました。
+🙏 [雪猫](https://zenn.dev/snowcait) さんの [コメント](https://zenn.dev/link/comments/9454f0239e23e2)
+:::
+
+:::message
+**2022/10/21追記： `fromJSON` とするところを `toJSON` と記載していたので修正しました。**
 :::
 
 # やりたいこと
@@ -31,7 +37,7 @@ on:
           - 本番
 
 env:
-  NEXT_PUBLIC_API_ORIGIN: |
+  NEXT_PUBLIC_API_ORIGIN: |-
     environment == 開発 -> https://dev.api.example.com
     environment == 検証 -> https://stg.api.example.com
     environment == 本番 -> https://api.example.com
@@ -66,17 +72,13 @@ on:
           - 本番
 
 env:
-  NEXT_PUBLIC_API_ORIGIN: |
+  NEXT_PUBLIC_API_ORIGIN: |-
     ${{ fromJSON('{
       "開発": "https://dev.api.example.com",
       "検証": "https://stg.api.example.com",
       "本番": "https://api.example.com"
-    }')[github.event.inputs.environment] }}\
+    }')[github.event.inputs.environment] }}
 ```
-
-:::message
-環境変数の末尾に改行を含めないために `\` の指定が必須です。
-:::
 
 # デフォルト値を指定する
 
@@ -87,11 +89,11 @@ env:
 ```yaml
 env:
   # 検証・本番以外では開発の値を使用したい
-  NEXT_PUBLIC_API_ORIGIN: |
+  NEXT_PUBLIC_API_ORIGIN: |-
     ${{ fromJSON('{
       "検証": "https://stg.api.example.com",
       "本番": "https://api.example.com"
-    }')[github.event.inputs.environment] || 'https://dev.api.example.com' }}\
+    }')[github.event.inputs.environment] || 'https://dev.api.example.com' }}
 ```
 
 # 値にシークレットや他の環境変数を使う
@@ -104,7 +106,7 @@ https://docs.github.com/ja/actions/learn-github-actions/expressions#format
 env:
   STAGING_API_ORIGIN: https://stg-api.example.com
   # 検証・本番以外では開発の値を使用したい
-  NEXT_PUBLIC_API_ORIGIN: |
+  NEXT_PUBLIC_API_ORIGIN: |-
     ${{ fromJSON(
       format(
         '{{
@@ -114,7 +116,7 @@ env:
         env.STAGING_API_ORIGIN,
         secrets.PRODUCTION_API_ORIGIN
       )
-    )[github.event.inputs.environment] || 'https://dev.api.example.com' }}\
+    )[github.event.inputs.environment] || 'https://dev.api.example.com' }}
 ```
 
 :::message
