@@ -1,3 +1,11 @@
+---
+title: Nuxt 3 で Top-level await を使う
+emoji: 🍬
+type: tech
+topics: [nuxt]
+published: true
+---
+
 ## Top-level await
 
 Top-level await は 2023/11/02 現在、 iOS 15 以上のすべてのモダンブラウザでサポートされています。
