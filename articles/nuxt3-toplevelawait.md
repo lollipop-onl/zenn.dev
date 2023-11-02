@@ -57,6 +57,7 @@ Nuxt 3 は Vite （クライアント）と Nitro （サーバー）のビルド
 各 UA のサポートバージョンは以下のとおりなので、これらのバージョンで設定します。
 
 | - | ESModule | MS Edge | Firefox | Chrome | Safari |
+| :---: | :---: | :---: | :---: | :---: | :---: |
 | Top-level await | ES2022 | 89 | 89 | 89 | 15 |
 
 ```ts
