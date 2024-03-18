@@ -18,9 +18,7 @@ https://zenn.dev/lollipop_onl/articles/eoz-nuxt-dev-memory-leak
 # 2024/03/18 更新： TypeScript 5.5 でビルトインサポートになります
 
 :::message
-TypeScript 5.5 は 2024/06/18 にリリース予定です。
-
-https://github.com/microsoft/TypeScript/issues/57475
+TypeScript 5.5 は 2024/06/18 にリリース予定です。 [microsoft/TypeScript#57475](https://github.com/microsoft/TypeScript/issues/57475)
 :::
 
 TypeScript 5.5 にて `Array.filter` による型の絞り込みがビルトインでサポートされるようになります。
