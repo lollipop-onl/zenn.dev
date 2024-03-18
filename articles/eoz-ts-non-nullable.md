@@ -15,7 +15,9 @@ published: true
 **前回：**
 https://zenn.dev/lollipop_onl/articles/eoz-nuxt-dev-memory-leak
 
-# 2024/03/18 更新： TypeScript 5.5 でビルトインサポートになります
+# TypeScript 5.5 でビルトインサポートになります
+
+**2024/03/18 追加**
 
 :::message
 TypeScript 5.5 は 2024/06/18 にリリース予定です。 [microsoft/TypeScript#57475](https://github.com/microsoft/TypeScript/issues/57475)
