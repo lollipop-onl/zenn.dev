@@ -15,6 +15,30 @@ published: true
 **前回：**
 https://zenn.dev/lollipop_onl/articles/eoz-nuxt-dev-memory-leak
 
+# 2024/03/18 更新： TypeScript 5.5 でビルトインサポートになります
+
+:::message
+TypeScript 5.5 は 2024/06/18 にリリース予定です。
+
+https://github.com/microsoft/TypeScript/issues/57475
+:::
+
+TypeScript 5.5 にて `Array.filter` による型の絞り込みがビルトインでサポートされるようになります。
+
+https://github.com/microsoft/TypeScript/pull/57465
+
+この記事で紹介している例も、 `nonNullable` に相当するユーザー定義の型ガードがなくても期待する型の絞り込みが行えます。
+
+```ts
+const arr = [0, 1, 'hello', false, null, undefined];
+
+const result = arr.filter((item) => item != null);
+// js: [0, 1, 'hello', false]
+// ts: (string | number | boolean)[] 🎉
+```
+
+> [TypeScript Playground](https://www.typescriptlang.org/play?ts=5.5.0-dev.20240318&ssl=5&ssc=1&pln=5&pc=37#code/MYewdgzgLgBAhgJwTAvDA2gBgDQwIy4DkAFgKYA25IhuAZnORKbmAK6W6tgAmptAlmFLcAugG4AUBNCRYCUhHaw0iBADoB5KKQQAKXf20BbAJSoAfDEOkjMAIRo2lE5ID0rmACsIALgw58IjJKajoGJhEJdxgoXxhdaARBAHMYAB8YNiMAIx10mGyQEHJSODATdBEgA)
+
 # 配列から nullable な値を除去する
 
 JavaScript で配列から nullable （`undefined` と `null`） を除去する方法としては、 `Array.prototype.filter` メソッドで要素が nullable でないかチェックするのが一般的かと思います。
