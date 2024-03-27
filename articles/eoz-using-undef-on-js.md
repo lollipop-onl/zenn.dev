@@ -85,7 +85,7 @@ const foo = () => {
 
   const obj = {};
 
-  obj.prop = undefined; // false
+  obj.prop === undefined; // false
 };
 ```
 
