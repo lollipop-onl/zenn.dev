@@ -17,9 +17,9 @@ JavaScript で `undefined` を値として使用することが推奨されな�
 **前回：**
 https://zenn.dev/lollipop_onl/articles/eoz-ts-no-unchecked-indexed-access
 
-# TypeScript Deep Drive の見解
+# TypeScript Deep Dive の見解
 
-TypeScript Deep Drive という TypeScript のバイブル的リファレンスに次のようなページがあります。
+TypeScript Deep Dive という TypeScript のバイブル的リファレンスに次のようなページがあります。
 
 https://typescript-jp.gitbook.io/deep-dive/recap/null-undefined
 
@@ -45,7 +45,7 @@ globalObj === undefined;
 typeof globalObj === 'undefined';
 ```
 
-ただ、TypeSCript Deep Drive には `undefined` を使用するべきではない具体的な理由については言及されていません。
+ただ、TypeSCript Deep Dive には `undefined` を使用するべきではない具体的な理由については言及されていません。
 
 # ESLintルールの見解
 
