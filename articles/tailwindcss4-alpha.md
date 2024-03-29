@@ -19,7 +19,6 @@ https://tailwindcss.com/blog/tailwindcss-v4-alpha
 
 そんなアルファ版ですが、執筆時点では [tailwindcss@4.0.0-alpha.11](https://www.npmjs.com/package/tailwindcss/v/4.0.0-alpha.11) が利用可能です。
 
-ただし、 v4 を Vite などのビルドツールで利用する方法などについて言及がされていません。
 ここでは、各ツールで TailwindCSS 4.0 のアルファ版を使う方法をまとめます。
 
 ## for Vite
