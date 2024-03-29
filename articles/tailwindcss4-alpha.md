@@ -3,10 +3,8 @@ title: TailwindCSS v4.0 を試そう！
 emoji: 🌬️
 type: tech
 topics: [tailwindcss, vite]
-published: false
+published: true
 ---
-
-## TailwindCSS v4
 
 2024年3月7日に TailwindCSS v4.0 のアルファ版が公開されました。
 
