@@ -17,18 +17,15 @@ https://zenn.dev/lollipop_onl/articles/eoz-nuxt-dev-memory-leak
 
 # TypeScript 5.5 でビルトインサポートになります
 
-<details><summary>2024/03/18 追加</summary>
-<p>
+::::details 2024/03/18 追加
 
 :::message
 TypeScript 5.5 は 2024/06/18 にリリース予定です。 [microsoft/TypeScript#57475](https://github.com/microsoft/TypeScript/issues/57475)
 :::
 
-</p>
-</details>
+::::
 
-<details open><summary>2024/06/22 追記</summary>
-<p>
+**2024/06/22 追記**
 
 :::message
 TypeScript 5.5 が 2024/06/20 にリリースされました。 [Announcing TypeScript 5.5](https://devblogs.microsoft.com/typescript/announcing-typescript-5-5/)
@@ -49,9 +46,6 @@ const result = arr.filter((item) => item != null);
 ```
 
 > [TypeScript Playground](https://www.typescriptlang.org/play/?#code/MYewdgzgLgBAhgJwTAvDA2gBgDQwIy4DkAFgKYA25IhuAZnORKbmAK6W6tgAmptAlmFLcAugG4AUBNCRYCUhHaw0iBADoB5KKQQAKXf20BbAJSoAfDEOkjMAIRo2lE5ID0rmACsIALgw58IjJKajoGJhEJdxgoXxhdaARBAHMYAB8YNiMAIx10mGyQEHJSODATdBEgA)
-
-</p>
-</details>
 
 # 配列から nullable な値を除去する
 
