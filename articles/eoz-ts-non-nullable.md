@@ -17,10 +17,21 @@ https://zenn.dev/lollipop_onl/articles/eoz-nuxt-dev-memory-leak
 
 # TypeScript 5.5 でビルトインサポートになります
 
-**2024/03/18 追加**
+<details><summary>2024/03/18 追加</summary>
+<p>
 
 :::message
 TypeScript 5.5 は 2024/06/18 にリリース予定です。 [microsoft/TypeScript#57475](https://github.com/microsoft/TypeScript/issues/57475)
+:::
+
+</p>
+</details>
+
+<details open><summary>2024/06/22 追記</summary>
+<p>
+
+:::message
+TypeScript 5.5 が 2024/06/20 にリリースされました。 [Announcing TypeScript 5.5](https://devblogs.microsoft.com/typescript/announcing-typescript-5-5/)
 :::
 
 TypeScript 5.5 にて `Array.filter` による型の絞り込みがビルトインでサポートされるようになります。
@@ -37,7 +48,10 @@ const result = arr.filter((item) => item != null);
 // ts: (string | number | boolean)[] 🎉
 ```
 
-> [TypeScript Playground](https://www.typescriptlang.org/play?ts=5.5.0-dev.20240318&ssl=5&ssc=1&pln=5&pc=37#code/MYewdgzgLgBAhgJwTAvDA2gBgDQwIy4DkAFgKYA25IhuAZnORKbmAK6W6tgAmptAlmFLcAugG4AUBNCRYCUhHaw0iBADoB5KKQQAKXf20BbAJSoAfDEOkjMAIRo2lE5ID0rmACsIALgw58IjJKajoGJhEJdxgoXxhdaARBAHMYAB8YNiMAIx10mGyQEHJSODATdBEgA)
+> [TypeScript Playground](https://www.typescriptlang.org/play/?#code/MYewdgzgLgBAhgJwTAvDA2gBgDQwIy4DkAFgKYA25IhuAZnORKbmAK6W6tgAmptAlmFLcAugG4AUBNCRYCUhHaw0iBADoB5KKQQAKXf20BbAJSoAfDEOkjMAIRo2lE5ID0rmACsIALgw58IjJKajoGJhEJdxgoXxhdaARBAHMYAB8YNiMAIx10mGyQEHJSODATdBEgA)
+
+</p>
+</details>
 
 # 配列から nullable な値を除去する
 
