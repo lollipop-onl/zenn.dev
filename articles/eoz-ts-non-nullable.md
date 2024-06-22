@@ -31,7 +31,7 @@ TypeScript 5.5 は 2024/06/18 にリリース予定です。 [microsoft/TypeScri
 TypeScript 5.5 が 2024/06/20 にリリースされました。 [Announcing TypeScript 5.5](https://devblogs.microsoft.com/typescript/announcing-typescript-5-5/)
 :::
 
-TypeScript 5.5 にて `Array.filter` による型の絞り込みがビルトインでサポートされるようになります。
+TypeScript 5.5 にて `Array.filter` による型の絞り込みがビルトインでサポートされるようになりました。
 
 https://github.com/microsoft/TypeScript/pull/57465
 
