@@ -6,6 +6,25 @@ topics: [nuxt]
 published: true
 ---
 
+:::message
+この記事の内容は Vite 7 以降を利用している Nuxt 4.0 および Nuxt 3.18 以降では不要となりました。
+:::
+
+## アップデート
+
+2025/06/24 にリリースされた Vite 7 より、デフォルトの対象ブラウザが変更されました。
+
+**`'baseline-widely-available'`**
+
+- Chrome 87 → 107
+- Edge 88 → 107
+- Firefox 78 → 104
+- Safari 14.0 → 16.0
+
+この変更により、この記事で説明している内容は **Vite 7 以降を利用している場合は不要となりました。**
+
+https://vite.dev/blog/announcing-vite7.html#default-browser-target-changed-to-baseline-widely-available
+
 ## まとめ
 
 ビルドターゲットをデフォルトよりモダンな設定に変更する必要があります。

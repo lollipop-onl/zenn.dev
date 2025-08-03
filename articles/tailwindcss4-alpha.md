@@ -6,6 +6,18 @@ topics: [tailwindcss, vite]
 published: true
 ---
 
+## アップデート
+
+2025/01/22 に Tailwind CSS v4.0 がリリースされました。
+
+https://tailwindcss.com/blog/tailwindcss-v4
+
+導入方法はドキュメントの Installtion ページをご確認ください。
+
+https://tailwindcss.com/docs/installation/
+
+## はじめに
+
 :::message
 この記事は2024年3月29日時点でのアルファ版の情報を記載しています。
 リリースまでに大きく変更される可能性があります。
