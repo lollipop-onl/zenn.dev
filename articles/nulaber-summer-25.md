@@ -661,7 +661,144 @@ function getCurrentTime() {
 :::details index.html
 
 ```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <script type="module">
+      import { createApp, ref, computed, onMounted } from "vue";
 
+      const app = createApp();
+
+      const useGoogleScript = (name) => {
+        const isPending = ref(false);
+        const error = ref(null);
+
+        const callGoogleScript = (...args) =>
+          new Promise((resolve, reject) => {
+            google.script.run
+              .withSuccessHandler(resolve)
+              .withFailureHandler(reject)
+              [name](...args);
+          });
+
+        const run = async (...args) => {
+          try {
+            isPending.value = true;
+            error.value = null;
+
+            return await callGoogleScript(...args);
+          } catch (err) {
+            error.value = err;
+          } finally {
+            isPending.value = false;
+          }
+        };
+
+        return { run, isPending, error };
+      };
+
+      app.component("ServerCurrentTime", {
+        template: "#server-current-time",
+        setup() {
+          const isoString = ref(null);
+          const isInitializing = ref(true);
+
+          const formattedDate = computed(() =>
+            Intl.DateTimeFormat(navigator.language, {
+              dateStyle: "long",
+              timeStyle: "long",
+            }).format(new Date(isoString.value))
+          );
+
+          const { run, isPending } = useGoogleScript("getCurrentTime");
+
+          const getCurrentTime = async () => {
+            const { currentTime } = await run();
+
+            console.log(currentTime);
+
+            isoString.value = currentTime;
+          };
+
+          onMounted(() => {
+            getCurrentTime().finally(() => {
+              isInitializing.value = false;
+            });
+          });
+
+          return {
+            isoString,
+            formattedDate,
+            isInitializing,
+            isPending,
+            getCurrentTime,
+          };
+        },
+      });
+
+      app.mount("#root");
+    </script>
+
+    <template id="server-current-time">
+      <div class="grid gap-5 border rounded px-6 py-4">
+        <template v-if="isInitializing">
+          <p class="text-gray-400">取得中...</p>
+        </template>
+        <template v-else>
+          <dl class="grid gap-3">
+            <dt class="font-bold">現在の日時（サーバー）</dt>
+            <dd>
+              <time :datetime="isoString">{{ formattedDate }}</time>
+            </dd>
+          </dl>
+          <div class="flex justify-center">
+            <button
+              :class="['px-4 py-1 rounded border border-blue-300 bg-blue-200 text-blue-600 hover:opacity-60 disabled:opacity-60', { 'animate-pulse': isPending }]"
+              :disabled="isPending"
+              @click="getCurrentTime"
+            >
+              日時を更新
+            </button>
+          </div>
+        </template>
+      </div>
+    </template>
+
+    <div id="root">
+      <server-current-time></server-current-time>
+    </div>
+  </body>
+</html>
 ```
 
 :::
+
+# おまけ： Tips 集
+
+## 属性にダブルクォーテーションを使わない
+
+GAS のテンプレートでは Vue の SFC と異なり、あくまで HTML として描画されるため属性の値にダブルクォーテーションを直接使うことはできません。
+（形式が正しくない HTML コンテンツ としてエラーになります）
+
+エスケープさせる方法もありますが、属性の値ではシングルクォーテーションを利用するようにするのが手軽です。
+
+```html
+<my-component
+  :class="['border', { 'border-red-400': flag }]"
+  @complete="showFeedback('処理が完了しました')"
+>
+</my-component>
+```
