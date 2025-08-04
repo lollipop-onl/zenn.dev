@@ -382,7 +382,9 @@ HTML の仕様により、コンポーネント名や Props 、イベントリ�
     </template>
 
     <div id="root">
-      <server-current-time></server-current-time>
+      <div class="py-10 mx-auto max-w-md">
+        <server-current-time></server-current-time>
+      </div>
     </div>
   </body>
 </html>
@@ -630,7 +632,9 @@ const useGoogleScript = (name) => {
     </template>
 
     <div id="root">
-      <server-current-time></server-current-time>
+      <div class="py-10 mx-auto max-w-md">
+        <server-current-time></server-current-time>
+      </div>
     </div>
   </body>
 </html>
@@ -778,7 +782,9 @@ function getCurrentTime() {
     </template>
 
     <div id="root">
-      <server-current-time></server-current-time>
+      <div class="py-10 mx-auto max-w-md">
+        <server-current-time></server-current-time>
+      </div>
     </div>
   </body>
 </html>
@@ -793,12 +799,43 @@ function getCurrentTime() {
 GAS のテンプレートでは Vue の SFC と異なり、あくまで HTML として描画されるため属性の値にダブルクォーテーションを直接使うことはできません。
 （形式が正しくない HTML コンテンツ としてエラーになります）
 
-エスケープさせる方法もありますが、属性の値ではシングルクォーテーションを利用するようにするのが手軽です。
+`&quot;` のように特殊文字を使用する方法もありますが、属性の値ではシングルクォーテーションを利用するようにするのが手軽です。
 
 ```html
 <my-component
   :class="['border', { 'border-red-400': flag }]"
-  @complete="showFeedback('処理が完了しました')"
+  @complete="showToast('処理が完了しました')"
 >
 </my-component>
 ```
+
+## VueUse を利用する
+
+https://vueuse.org/
+
+Vue.js 向けのコンポジションユーティリティライブラリである VueUse も CDN 経由で ESM として利用が可能です。
+
+```html
+<script type="importmap">
+  {
+    "imports": {
+      "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js",
+      "@vueuse/shared": "https://unpkg.com/@vueuse/shared@13/index.mjs",
+      "@vueuse/core": "https://unpkg.com/@vueuse/core@13/index.mjs"
+    }
+  }
+</script>
+
+<script type="module">
+  import { usePointer } from '@vueuse/core';
+
+  ...
+</script>
+```
+
+VueUse の場合は参照しているモジュールが少ないため上記のコードのみで動きます。
+他のライブラリを利用する場合は、そのモジュールが参照している他のモジュールについての `importmap` を定義する必要があります。
+
+ライブラリによっては依存関係が複雑になることもあるため、 `importmap` の作成には JSPM Generator が便利です。
+
+https://generator.jspm.io/
