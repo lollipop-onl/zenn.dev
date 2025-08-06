@@ -1,14 +1,14 @@
 ---
-title: ビルド不要！ Google Apps Script のウェブアプリを Vue.js と Tailwind CSS でモダンに実装しよう
+title: ビルド不要！ Google Apps Script のウェブアプリを Vue.js と Tailwind CSS で実装しよう
 emoji: 🐈‍⬛
 type: tech
 topics: [googleappsscript, esm, vue, tailwindcss]
 published: false
 ---
 
-この記事は「ヌーラボブログリレー 2025 夏」の 1 日目です。
+この記事は「 #ヌーラボブログリレー2025夏 」の 1 日目です。
 
-![](https://storage.googleapis.com/zenn-user-upload/e27f3fa5c329-20240729.png)
+![ビルド不要！ Google Apps Script のウェブアプリを Vue.js と Tailwind CSS でモダンに実装しよう #ヌーラボブログリレー2025夏](https://storage.googleapis.com/zenn-user-upload/dd36d3b993e0-20250806.png)
 
 明日以降の執筆予定については [夏だ！祭りだ！ブログリレーがやってくる！#ヌーラボ真夏のブログリレー 2024](#) をご覧ください！
 
