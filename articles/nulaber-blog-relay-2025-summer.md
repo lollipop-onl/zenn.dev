@@ -6,7 +6,7 @@ topics: [googleappsscript, esm, vue, tailwindcss]
 published: false
 ---
 
-この記事は「 **#ヌーラボブログリレー2025夏** 」の 1 日目です。
+この記事は [ヌーラボブログリレー2025夏](https://nulab.com/ja/blog/nulab/nulaber-blog-relay-2025-summer/) の1日目として投稿しています。
 
 ![ビルド不要！ Google Apps Script のウェブアプリを Vue.js と Tailwind CSS でモダンに実装しよう #ヌーラボブログリレー2025夏](https://storage.googleapis.com/zenn-user-upload/dd36d3b993e0-20250806.png)
 
