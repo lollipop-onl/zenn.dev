@@ -27,6 +27,156 @@ https://developers.google.com/apps-script/guides/web?hl=ja
 
 そこでこの記事では、 **近年のブラウザに標準搭載された ES Modules などの機能を活用し、 GAS 上でモダンなフロントエンド技術スタックを利用する方法** を紹介します。
 
+# 今回作成するファイルの全文
+
+:::details script.gs
+
+```js
+function doGet() {
+  const template = HtmlService.createTemplateFromFile("index");
+
+  return template.evaluate();
+}
+
+function getCurrentTime() {
+  return {
+    currentTime: new Date().toISOString(),
+  };
+}
+```
+
+:::
+
+:::details index.html
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <script type="module">
+      import { createApp, ref, computed, onMounted } from "vue";
+
+      const app = createApp();
+
+      const useGoogleScript = (name) => {
+        const isPending = ref(false);
+        const error = ref(null);
+
+        const callGoogleScript = (...args) =>
+          new Promise((resolve, reject) => {
+            google.script.run
+              .withSuccessHandler(resolve)
+              .withFailureHandler(reject)
+              [name](...args);
+          });
+
+        const run = async (...args) => {
+          try {
+            isPending.value = true;
+            error.value = null;
+
+            return await callGoogleScript(...args);
+          } catch (err) {
+            error.value = err;
+          } finally {
+            isPending.value = false;
+          }
+        };
+
+        return { run, isPending, error };
+      };
+
+      app.component("ServerCurrentTime", {
+        template: "#server-current-time",
+        setup() {
+          const isoString = ref(null);
+          const isInitializing = ref(true);
+
+          const formattedDate = computed(() =>
+            Intl.DateTimeFormat(navigator.language, {
+              dateStyle: "long",
+              timeStyle: "long",
+            }).format(new Date(isoString.value))
+          );
+
+          const { run, isPending } = useGoogleScript("getCurrentTime");
+
+          const getCurrentTime = async () => {
+            const { currentTime } = await run();
+
+            console.log(currentTime);
+
+            isoString.value = currentTime;
+          };
+
+          onMounted(() => {
+            getCurrentTime().finally(() => {
+              isInitializing.value = false;
+            });
+          });
+
+          return {
+            isoString,
+            formattedDate,
+            isInitializing,
+            isPending,
+            getCurrentTime,
+          };
+        },
+      });
+
+      app.mount("#root");
+    </script>
+
+    <template id="server-current-time">
+      <div class="grid gap-5 border rounded px-6 py-4">
+        <template v-if="isInitializing">
+          <p class="text-gray-400">取得中...</p>
+        </template>
+        <template v-else>
+          <dl class="grid gap-3">
+            <dt class="font-bold">現在の日時（サーバー）</dt>
+            <dd>
+              <time :datetime="isoString">{{ formattedDate }}</time>
+            </dd>
+          </dl>
+          <div class="flex justify-center">
+            <button
+              :class="['px-4 py-1 rounded border border-blue-300 bg-blue-200 text-blue-600 hover:opacity-60 disabled:opacity-60', { 'animate-pulse': isPending }]"
+              :disabled="isPending"
+              @click="getCurrentTime"
+            >
+              日時を更新
+            </button>
+          </div>
+        </template>
+      </div>
+    </template>
+
+    <div id="root">
+      <div class="py-10 mx-auto max-w-md">
+        <server-current-time></server-current-time>
+      </div>
+    </div>
+  </body>
+</html>
+```
+
+:::
+
 # 利用する技術・ツール
 
 ## [ES modules](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Modules)
@@ -513,156 +663,6 @@ const useGoogleScript = (name) => {
 これで、 GAS のスクリプトファイルで定義した関数から取得した日時に基づいて、ローカライズされた日時を表示できるようになりました。
 
 :::details ここまでの index.html
-
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <base target="_top" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script type="importmap">
-      {
-        "imports": {
-          "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
-        }
-      }
-    </script>
-  </head>
-  <body>
-    <script type="module">
-      import { createApp, ref, computed, onMounted } from "vue";
-
-      const app = createApp();
-
-      const useGoogleScript = (name) => {
-        const isPending = ref(false);
-        const error = ref(null);
-
-        const callGoogleScript = (...args) =>
-          new Promise((resolve, reject) => {
-            google.script.run
-              .withSuccessHandler(resolve)
-              .withFailureHandler(reject)
-              [name](...args);
-          });
-
-        const run = async (...args) => {
-          try {
-            isPending.value = true;
-            error.value = null;
-
-            return await callGoogleScript(...args);
-          } catch (err) {
-            error.value = err;
-          } finally {
-            isPending.value = false;
-          }
-        };
-
-        return { run, isPending, error };
-      };
-
-      app.component("ServerCurrentTime", {
-        template: "#server-current-time",
-        setup() {
-          const isoString = ref(null);
-          const isInitializing = ref(true);
-
-          const formattedDate = computed(() =>
-            Intl.DateTimeFormat(navigator.language, {
-              dateStyle: "long",
-              timeStyle: "long",
-            }).format(new Date(isoString.value))
-          );
-
-          const { run, isPending } = useGoogleScript("getCurrentTime");
-
-          const getCurrentTime = async () => {
-            const { currentTime } = await run();
-
-            console.log(currentTime);
-
-            isoString.value = currentTime;
-          };
-
-          onMounted(() => {
-            getCurrentTime().finally(() => {
-              isInitializing.value = false;
-            });
-          });
-
-          return {
-            isoString,
-            formattedDate,
-            isInitializing,
-            isPending,
-            getCurrentTime,
-          };
-        },
-      });
-
-      app.mount("#root");
-    </script>
-
-    <template id="server-current-time">
-      <div class="grid gap-5 border rounded px-6 py-4">
-        <template v-if="isInitializing">
-          <p class="text-gray-400">取得中...</p>
-        </template>
-        <template v-else>
-          <dl class="grid gap-3">
-            <dt class="font-bold">現在の日時（サーバー）</dt>
-            <dd>
-              <time :datetime="isoString">{{ formattedDate }}</time>
-            </dd>
-          </dl>
-          <div class="flex justify-center">
-            <button
-              :class="['px-4 py-1 rounded border border-blue-300 bg-blue-200 text-blue-600 hover:opacity-60 disabled:opacity-60', { 'animate-pulse': isPending }]"
-              :disabled="isPending"
-              @click="getCurrentTime"
-            >
-              日時を更新
-            </button>
-          </div>
-        </template>
-      </div>
-    </template>
-
-    <div id="root">
-      <div class="py-10 mx-auto max-w-md">
-        <server-current-time></server-current-time>
-      </div>
-    </div>
-  </body>
-</html>
-```
-
-:::
-
-# 今回作成したファイルの全文
-
-:::details script.gs
-
-```js
-function doGet() {
-  const template = HtmlService.createTemplateFromFile("index");
-
-  return template.evaluate();
-}
-
-function getCurrentTime() {
-  return {
-    currentTime: new Date().toISOString(),
-  };
-}
-```
-
-:::
-
-:::details index.html
 
 ```html
 <!DOCTYPE html>
