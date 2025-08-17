@@ -189,7 +189,7 @@ ESM では `<script type="module">` を使って定義されたスクリプト�
 
 ## [importmap](https://developer.mozilla.org/ja/docs/Web/HTML/Reference/Elements/script/type/importmap)
 
-`importmap` を使うと、 ESM もモジュール名を実際の URL にマッピングできます。
+`importmap` を使うと、 ESM のモジュール名を実際の URL にマッピングできます。
 
 ```html
 <script type="importmap">
@@ -212,7 +212,7 @@ UI ライブラリとしては Vue.js を利用します。今回は、次のよ
 
 ## [Tailwind CSS](https://tailwindcss.com) (Play CDN)
 
-CSS は Taiwind CSS が提供している Play CDN 版を利用します。
+CSS は Tailwind CSS が提供している Play CDN 版を利用します。
 
 Play CDN 版では、実行時に JavaScript で必要なクラスを動的に読み込めたり、テーマや設定をカスタマイズできたりするため、通常の Tailwind CSS と同等の使い勝手で利用ができます。
 
@@ -648,7 +648,7 @@ const useGoogleScript = (name) => {
       </dl>
       <div class="flex justify-center">
         <button
-          :class="['px-4 py-1 rounded border border-blue-300 bg-blue-200 text-blue-600 hover:opacity-60 disabled:opacity-60', { 'cursor-pointer': !isPending }]"
+          :class="['px-4 py-1 rounded border border-blue-300 bg-blue-200 text-blue-600 hover:opacity-60 disabled:opacity-60', { 'animate-pulse': !isPending }]"
           :disabled="isPending"
           @click="getCurrentTime"
         >
