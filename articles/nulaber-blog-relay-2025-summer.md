@@ -3,7 +3,7 @@ title: ビルド不要！ Google Apps Script のウェブアプリを Vue.js と
 emoji: 🐈‍⬛
 type: tech
 topics: [googleappsscript, esm, vue, tailwindcss]
-published: false
+published: true
 ---
 
 この記事は [ヌーラボブログリレー2025夏](https://nulab.com/ja/blog/nulab/nulaber-blog-relay-2025-summer/) の1日目として投稿しています。
