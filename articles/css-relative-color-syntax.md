@@ -65,4 +65,6 @@ https://drafts.csswg.org/css-mixins-1/
 @function --color-alpha(--color, --alpha) {
   result: rgb(from var(--color) r g b / var(--alpha));
 }
+
+background-color: --color-alpha(var(--color-black), 0.75);
 ```
