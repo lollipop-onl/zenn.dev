@@ -69,4 +69,4 @@ https://drafts.csswg.org/css-mixins-1/
 background-color: --color-alpha(var(--color-black), 0.75);
 ```
 
-@[jsfiddle](//jsfiddle.net/simochee/2815yoaq/1/embedded/result,css,html/light/)
+@[jsfiddle](https://jsfiddle.net/simochee/2815yoaq/1/embedded/result,css,html/)
