@@ -2,7 +2,7 @@
 title: ビルド不要！ Google Apps Script のウェブアプリを Vue.js と Tailwind CSS で実装しよう
 emoji: 🐈‍⬛
 type: tech
-topics: [googleappsscript, esm, vue, tailwindcss]
+topics: [googleappsscript, esm, vue, tailwindcss, ヌーラボブログリレー2025夏]
 published: true
 ---
 
