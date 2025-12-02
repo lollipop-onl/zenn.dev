@@ -1,5 +1,5 @@
 ---
-title: 無料 (Gemini 2.5 Flash) で LLM を使った屋台検索を実装してみる
+title: 無料 (Gemini 2.5 Flash) で LLM を使った屋台検索を実装してみる #ヌーラボブログリレー2025冬
 emoji: 🐈‍⬛
 type: tech
 topics: [ヌーラボブログリレー2025冬, gemini]
