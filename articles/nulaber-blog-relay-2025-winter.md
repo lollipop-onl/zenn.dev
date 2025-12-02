@@ -220,7 +220,7 @@ console.log(response.text);
 
 実行した結果が次の通りです。
 
-```jsonc
+```json
 {
   // 入力として Gemini に送信されたトークンの総量
   promptTokenCount: 133333,
