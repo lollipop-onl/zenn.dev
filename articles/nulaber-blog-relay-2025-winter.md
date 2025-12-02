@@ -11,7 +11,7 @@ topics: [ヌーラボブログリレー2025冬, gemini]
 
 他の日に投稿される記事については [【ヌーラボブログリレー2025 冬】for Tech Advent Calendar 2025](https://adventar.org/calendars/11965) をご覧ください！
 
-# はじめに
+## はじめに
 
 さまざまなモデルが群雄割拠な昨今ですが、進化の過程で上限はありますが無料で使えるモデルも増えてきました。
 
@@ -19,7 +19,7 @@ topics: [ヌーラボブログリレー2025冬, gemini]
 
 なお、内容はプロンプトやデータの細かいチューニングというよりは Node.js から Gemini を呼び出すためのハウツーのようなものになっています。
 
-## 利用するモデル
+### 利用するモデル
 
 今回利用するモデルは Gemini API で利用できるモデルのうち、無料枠が大きい Gemini 2.5 Flash です。
 
@@ -30,9 +30,9 @@ Gemini 2.5 は 10 リクエスト/分（ 250 リクエスト/日）、 25万ト�
 
 https://ai.google.dev/gemini-api/docs/rate-limits?hl=ja
 
-# 事前準備
+## 事前準備
 
-## Gemini API キーの取得
+### Gemini API キーの取得
 
 ![](https://storage.googleapis.com/zenn-user-upload/0e3f3ae1cfe4-20251203.png)
 
@@ -40,7 +40,7 @@ https://ai.google.dev/gemini-api/docs/rate-limits?hl=ja
 
 https://ai.google.dev/gemini-api/docs/api-key?hl=ja
 
-## オープンデータの取得
+### オープンデータの取得
 
 この記事では福岡市が提供するオープンデータ「屋台基本情報」を利用します。
 
@@ -48,7 +48,7 @@ https://ai.google.dev/gemini-api/docs/api-key?hl=ja
 
 https://data.bodik.jp/dataset/401307_yataiopendata/resource/328edbc1-6967-4d0a-8f6d-6678420f4fe2
 
-## 開発環境
+### 開発環境
 
 Node.js 22 以上がインストールされている環境を前提とします。
 
@@ -62,7 +62,7 @@ Node.js 22 以上がインストールされている環境を前提とします
 `- package.json
 ```
 
-## Gemini を呼び出すクライアントのインストール
+### Gemini を呼び出すクライアントのインストール
 
 今回は Google によって提供されている `@google/genai` を利用して Gemini API を呼び出します。
 
@@ -72,7 +72,7 @@ Node.js 22 以上がインストールされている環境を前提とします
 npm add @google/genai
 ```
 
-# Gemini を Node.js から呼び出してみる
+## Gemini を Node.js から呼び出してみる
 
 まずは `@google/genai` を使って Gemini API を呼び出してみます。
 
@@ -117,12 +117,12 @@ GEMINI_API_KEY=**** node index.mjs
 
 ヌーラボの代表的なキャラクターは [ヌーマン](https://x.com/nulabjp/status/1097360567243812864) やサルの[ダイミョー](https://backlog.com/ja/blog/interview-backlog-saru-waka-daimyo/)、ゴリラのゴリットくんなどなので誤った出力となりました。
 
-# データセットを指定する
+## データセットを指定する
 
 ここからが本題です。
 福岡市の屋台をユーザーにおすすめする実装を行っていきます。
 
-## データセットなしで出力させてみる
+### データセットなしで出力させてみる
 
 まずは、データセットなしで Gemini を呼び出してみます。
 
@@ -151,7 +151,7 @@ async function main() {
 
 屋台ではなく地鶏の専門店をおすすめされてしまいました。
 
-## データセットをそのまま含めて出力させてみる
+### データセットをそのまま含めて出力させてみる
 
 データセットがない状態では特にニッチな内容でリクエストすると、期待したものではないレスポンスが得られました。
 
@@ -191,7 +191,7 @@ ${JSON.stringify(dataset)}
 
 未編集の JSON データでしたが、期待したとおり「KUROチャン」がレスポンスされました。
 
-# データを整理してトークン数を節約する
+## データを整理してトークン数を節約する
 
 利用モデルの章で説明したとおり、 Gemini 2.5 Flash は分間のトークン数でレート上限が設定されています。
 そうでなくても、一般的にトークンが増えるほど、応答精度が下がりやすくなり、発生する料金も上がってしまいます。
@@ -204,7 +204,7 @@ https://ai.google.dev/gemini-api/docs/tokens?hl=ja&lang=javascript
 また、 Gemini とカウント方法が若干異なる可能性はありますが、 OpenAI の Tokenizer を利用することでトークン数を概算できます。
 https://platform.openai.com/tokenizer
 
-## やりとりで発生したトークン数を確認する
+### やりとりで発生したトークン数を確認する
 
 `ai.models.generateContent()` のレスポンスには `usageMetadata` というプロパティが含まれています。
 この内容を確認することで、 Gemini API とのやりとりで発生したトークン数などが確認できます。
@@ -237,7 +237,7 @@ console.log(response.text);
 
 この値がなるべく小さくなるように入力するデータを調整していきます。
 
-## データのフォーマットを変更する
+### データのフォーマットを変更する
 
 :::message
 今回はデータにカンマが含まれないため、簡単にカンマ区切りにしています。
@@ -289,7 +289,7 @@ simochee,Nulab Inc.
 
 わずかですが、入力トークンが減少しました。
 
-## おすすめに不要なデータを除去する
+### おすすめに不要なデータを除去する
 
 現状、屋台IDなどの行政用データや住所などの屋台のおすすめに直接関係のない項目もプロンプトに含めてしまっています。
 必要な項目を精査し、含める項目を減らします。
@@ -343,7 +343,7 @@ await main();
 
 もし、キャッシュレス決済や貸切の可否なども含めたい場合は、 `records` に情報を追加すれば対応できます。
 
-# おわりに
+## おわりに
 
 ここまでの実装で固定データをプロンプトに含めることで、 LLM が把握していない情報源から出力させることができました。
 
