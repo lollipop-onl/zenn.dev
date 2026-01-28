@@ -2,7 +2,7 @@
 title: Nulab Test Article
 emoji: '🐈‍⬛'
 publication_name: "nulab"
-published: true
+published: false
 ---
 
 # 見出し
