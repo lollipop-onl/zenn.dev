@@ -2,7 +2,7 @@
 title: "Claude Code と AGENTS.md で Backlog CLI を実装しきった話"
 emoji: "🐝"
 type: "tech"
-topics: ["claude", "cli", "typescript", "ai"]
+topics: ["backlog", "claudecode", "cli", "astro"]
 published: false
 ---
 
