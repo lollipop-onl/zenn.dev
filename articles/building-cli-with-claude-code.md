@@ -24,7 +24,7 @@ bee issue list --assignee @me --status 処理中
 bee issue view PROJECT-123 --web
 ```
 
-以前 AI に任せきりで勢いよく作った [simochee/backlog-cli](https://github.com/simochee/backlog-cli) がベースになっていますが、実装漏れや不具合が多く実用には心許ない品質でした。
+以前 Vibe Coding で作った [simochee/backlog-cli](https://github.com/simochee/backlog-cli) がベースになっていますが、実装漏れや不具合が多く実用には心許ない品質でした。
 そこで「Backlog API → CLI コマンド」というパターンが明確なこの題材を、AI 向けの体裁を整えた上で作り直すことにしました。
 
 コードのほとんどを Claude Code（モデルは Claude Opus 4.6）が書き、自分は「選定」「統一感」「レビュー」「レール敷き」を担当するという体制です。
