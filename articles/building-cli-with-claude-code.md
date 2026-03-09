@@ -9,6 +9,8 @@ published: false
 ## はじめに
 
 Backlog の CLI ツール [bee](https://github.com/nulab/bee) を Claude Code で作りました。
+https://nulab.github.io/bee
+
 自分が書いたコードは多くなく、役割は「コードを書くこと」よりも「AI が迷わない環境を作ること」に寄っていました。
 
 この記事では、`AGENTS.md` や Linter の設定など、AI にコードを任せる上で実際に効いたテクニックと、やってみて気づいたことを書きます。
