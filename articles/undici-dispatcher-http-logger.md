@@ -100,11 +100,6 @@ const createLoggingInterceptor = (): Interceptor => {
 };
 ```
 
-:::message
-undici v7 では handler API が v6 以前と異なります。v6 では `onHeaders` / `onError` だったものが v7 では `onResponseStart` / `onResponseError` に変わっています。v6 の API で書くと実行時に呼ばれず無視されます。
-
-https://github.com/nodejs/undici/blob/main/docs/docs/api/Dispatcher.md#dispatcherdispatch
-:::
 
 ### センシティブなパラメータのマスク
 
