@@ -14,7 +14,7 @@ backlog-js は内部で Node.js 組み込みの `fetch` を使っており、`fe
 ## 前提
 
 - Node.js >= 20.18
-- undici >= 7.22.0（`npm install undici` で明示的にインストールが必要）
+- undici >= 7.0.0
 
 Node.js には undici がバンドルされていますが、`Dispatcher.compose` などの API をアプリケーションコードから利用するには undici パッケージを別途インストールする必要があります。
 
@@ -58,30 +58,35 @@ type Interceptor = (dispatch: Dispatcher["dispatch"]) => Dispatcher["dispatch"];
 const createLoggingInterceptor = (): Interceptor => {
   let originLogged = false;
 
+  // インターセプターは dispatch 関数を受け取り、新しい dispatch 関数を返す
   return (dispatch) => (opts, handler) => {
     // API ホストは初回リクエスト時に一度だけ表示
     const origin = opts.origin?.toString() ?? "";
     if (!originLogged && origin) {
-      console.debug(`API host: ${origin}`);
+      console.log(`API host: ${origin}`);
       originLogged = true;
     }
 
+    // リクエスト情報を取得して開始時刻を記録
     const method = opts.method ?? "UNKNOWN";
     const path = opts.path ?? "";
     const start = performance.now();
 
-    console.debug(`→ ${method} ${path}`);
+    console.log(`→ ${method} ${path}`);
 
+    // handler を差し替えてレスポンスのタイミングでもログを出す
     return dispatch(opts, {
+      // 元の handler にそのまま委譲するコールバック
       onRequestStart(controller, context) {
         handler.onRequestStart?.(controller, context);
       },
       onRequestUpgrade(controller, statusCode, headers, socket) {
         handler.onRequestUpgrade?.(controller, statusCode, headers, socket);
       },
+      // レスポンスを受信したらステータスコードと所要時間をログに出す
       onResponseStart(controller, statusCode, headers, statusMessage) {
         const elapsed = Math.round(performance.now() - start);
-        console.debug(`← ${statusCode} ${method} ${path} (${elapsed}ms)`);
+        console.log(`← ${statusCode} ${method} ${path} (${elapsed}ms)`);
         handler.onResponseStart?.(controller, statusCode, headers, statusMessage);
       },
       onResponseData(controller, data) {
@@ -90,9 +95,10 @@ const createLoggingInterceptor = (): Interceptor => {
       onResponseEnd(controller, trailers) {
         handler.onResponseEnd?.(controller, trailers);
       },
+      // エラー時もログを出してから元の handler に委譲
       onResponseError(controller, err) {
         const elapsed = Math.round(performance.now() - start);
-        console.debug(`✗ ${method} ${path} (${elapsed}ms)`);
+        console.log(`✗ ${method} ${path} (${elapsed}ms)`);
         handler.onResponseError?.(controller, err);
       },
     });
@@ -106,6 +112,7 @@ const createLoggingInterceptor = (): Interceptor => {
 Backlog API では `apiKey` がクエリパラメータに含まれるため、ログにそのまま出力するとシークレットが漏れます。正規表現で `apiKey=xxx` を `apiKey=***` に置換します。
 
 ```ts:http-logger.ts
+// apiKey=xxxxx → apiKey=*** に置換
 const maskSensitiveParams = (url: string): string =>
   url.replaceAll(/([?&])(apiKey)=[^&]*/gi, "$1$2=***");
 ```
@@ -115,11 +122,12 @@ const maskSensitiveParams = (url: string): string =>
 エンコードされたクエリパラメータ（例: `projectId%5B%5D=1`）はそのままだと読みづらいので、デコードして可読性を上げます。
 
 ```ts:http-logger.ts
+// projectId%5B%5D=1 → projectId[]=1 のように読みやすくする
 const formatPath = (path: string): string => {
   try {
     return decodeURIComponent(maskSensitiveParams(path));
   } catch {
-    // デコードに失敗した場合はマスクのみ適用
+    // 不正なエンコードの場合はマスクのみ適用
     return maskSensitiveParams(path);
   }
 };
@@ -131,6 +139,7 @@ const formatPath = (path: string): string => {
 
 ```ts:http-logger.ts
 const installHttpLogger = (): void => {
+  // デフォルトの Agent にインターセプターを合成して、グローバルに設定
   const agent = new Agent().compose(createLoggingInterceptor());
   setGlobalDispatcher(agent);
 };
