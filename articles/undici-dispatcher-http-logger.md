@@ -18,6 +18,10 @@ backlog-js は内部で Node.js 組み込みの `fetch` を使っており、`fe
 
 Node.js には undici がバンドルされていますが、`Dispatcher.compose` などの API をアプリケーションコードから利用するには undici パッケージを別途インストールする必要があります。
 
+:::message
+[isomorphic-fetch](https://github.com/matthew-andrews/isomorphic-fetch) を使っている場合は undici が利用されないため、この記事の方法は適用できません。
+:::
+
 ## 仕組み
 
 undici の `Agent` はデフォルトの HTTP ディスパッチャーです。[`Dispatcher.compose`](https://github.com/nodejs/undici/blob/main/docs/docs/api/Dispatcher.md) メソッドにインターセプター関数を渡すことで、dispatch の前後にロジックを挟めます。
