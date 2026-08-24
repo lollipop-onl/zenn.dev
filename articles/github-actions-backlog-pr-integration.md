@@ -66,6 +66,11 @@ jobs:
         env:
           BRANCH: ${{ github.head_ref }}
 
+      # 後続のステップで bee コマンドを使えるようにする
+      - name: Install bee CLI
+        if: steps.issue.outputs.key != ''
+        run: npm install -g @nulab/bee@1
+
       # コメント本文に埋め込むプルリクエストへのリンク
       - name: Build PR link text
         id: pr-link
@@ -80,7 +85,7 @@ jobs:
       - name: Link issue to the opened PR
         if: steps.issue.outputs.key != '' && github.event.action == 'opened'
         run: |
-          npx @nulab/bee@1 issue edit "$KEY" --status "$STATUS_IN_PROGRESS" \
+          bee issue edit "$KEY" --status "$STATUS_IN_PROGRESS" \
             --comment "GitHub プルリクエスト $PR_LINK とリンクしました（$HEAD → $BASE）"
         env:
           KEY: ${{ steps.issue.outputs.key }}
@@ -92,7 +97,7 @@ jobs:
       - name: Mark issue as in progress again on PR reopen
         if: steps.issue.outputs.key != '' && github.event.action == 'reopened'
         run: |
-          npx @nulab/bee@1 issue edit "$KEY" --status "$STATUS_IN_PROGRESS" \
+          bee issue edit "$KEY" --status "$STATUS_IN_PROGRESS" \
             --comment "GitHub プルリクエスト $PR_LINK が再オープンされました"
         env:
           KEY: ${{ steps.issue.outputs.key }}
@@ -102,7 +107,7 @@ jobs:
       - name: Close issue on merge
         if: steps.issue.outputs.key != '' && github.event.action == 'closed' && github.event.pull_request.merged == true
         run: |
-          npx @nulab/bee@1 issue close "$KEY" \
+          bee issue close "$KEY" \
             --comment "GitHub プルリクエスト $PR_LINK が $BASE にマージされました"
         env:
           KEY: ${{ steps.issue.outputs.key }}
@@ -113,7 +118,7 @@ jobs:
       - name: Note that the PR was closed without merging
         if: steps.issue.outputs.key != '' && github.event.action == 'closed' && github.event.pull_request.merged == false
         run: |
-          npx @nulab/bee@1 issue comment "$KEY" \
+          bee issue comment "$KEY" \
             --body "GitHub プルリクエスト $PR_LINK はマージされずにクローズされました"
         env:
           KEY: ${{ steps.issue.outputs.key }}
@@ -121,6 +126,11 @@ jobs:
 ```
 
 ## 実際の動き
+
+この記事のワークフローを実際に動かしたデモリポジトリを公開しています。
+スクリーンショットは、 [lollipop-onl/backlog-pr-sync-demo#5](https://github.com/lollipop-onl/backlog-pr-sync-demo/pull/5) の作成からマージまでを動かしたときのものです。
+
+https://github.com/lollipop-onl/backlog-pr-sync-demo
 
 課題キーで始まるブランチからプルリクエストを作成すると、課題が「処理中」になり、プルリクエストへのリンクがコメントとして残ります。
 
@@ -136,7 +146,7 @@ jobs:
 
 ### ステータス変更とコメントは 1 コマンドで行う
 
-最初はステータス変更 ( `issue edit` ) とコメント追加 ( `issue comment` ) を分けて書いていたのですが、プルリクエストを再オープンしたときだけワークフローが失敗する現象に当たりました。
+最初はステータス変更 ( `issue edit` ) とコメント追加 ( `issue comment` ) を分けて書いていたのですが、プルリクエストを再オープンしたときだけワークフローが失敗する現象に当たりました（[実際に失敗した run](https://github.com/lollipop-onl/backlog-pr-sync-demo/actions/runs/32757976307)）。
 
 ```json
 {"errors":[{"message":"No comment content.","code":7,"moreInfo":""}]}
@@ -168,10 +178,12 @@ https://docs.github.com/ja/actions/security-for-github-actions/security-guides/s
 
 ## 運用に合わせて変える
 
+### マージ時に「処理済み」で止める
+
 マージ時に課題を「完了」ではなく「処理済み」で止めたい場合は、 `issue close` を `issue edit` に差し替えます。
 
 ```yaml
-          npx @nulab/bee@1 issue edit "$KEY" --status "3" \
+          bee issue edit "$KEY" --status "3" \
             --comment "GitHub プルリクエスト $PR_LINK が $BASE にマージされました"
 ```
 
@@ -179,6 +191,30 @@ https://docs.github.com/ja/actions/security-for-github-actions/security-guides/s
 別の完了理由を設定したい場合は `--resolution` オプションが利用できます。
 
 https://nulab.github.io/bee/commands/issue/close/
+
+### プルリクエストへのリンクをカスタム属性に登録する
+
+コメントとして流れていくだけでなく、課題の属性としてプルリクエストへのリンクを持たせておくこともできます。
+カスタム属性の更新は bee の専用コマンドでは対応していませんが、 `bee api` から Backlog API を直接呼び出せます。
+
+```yaml
+      # プルリクエスト作成 → カスタム属性に PR リンクを登録
+      - name: Save PR link to a custom field
+        if: steps.issue.outputs.key != '' && github.event.action == 'opened'
+        run: |
+          bee api -X PATCH "issues/$KEY" \
+            -F "customField_12345=$PR_LINK"
+        env:
+          KEY: ${{ steps.issue.outputs.key }}
+          PR_LINK: ${{ steps.pr-link.outputs.md }}
+```
+
+`customField_` に続く数値はカスタム属性の ID で、 `bee api projects/<PROJECT>/customFields` で確認できます。
+Markdown のプロジェクトであれば、 `[表示名](URL)` 形式の値はカスタム属性でもリンクとして表示されます。
+
+![課題の属性欄に表示されたカスタム属性「関連 PR」。プルリクエストへのリンクがリンクとして表示されている](/images/backlog-pr-integration/custom-field.png)
+
+https://nulab.github.io/bee/commands/api/
 
 ## おわりに
 
