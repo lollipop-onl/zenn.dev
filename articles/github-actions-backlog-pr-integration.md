@@ -6,6 +6,10 @@ topics: [backlog, github, githubactions, cli]
 published: false
 ---
 
+この記事は *ヌーラボブログリレー2026夏* の1日目の2本目として投稿しています。
+
+![ブログリレーのサムネイル](/images/backlog-pr-integration/thumbnail.png)
+
 GitHub と Backlog を併用していると、プルリクエストを作ったら課題を「処理中」に、マージしたら「完了」に、と Backlog 側を手で更新することになります。
 
 この記事では、GitHub Actions と [bee CLI](https://nulab.github.io/bee/) ( Backlog CLI ) を組み合わせて、この更新を自動化する方法を紹介します。
