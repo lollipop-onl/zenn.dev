@@ -3,7 +3,7 @@ title: GitHub Actions で Backlog 課題と GitHub プルリクエストを連�
 emoji: 🍭
 type: tech
 topics: [backlog, github, githubactions, cli]
-published: false
+published: true
 ---
 
 この記事は *ヌーラボブログリレー2026夏* の7日目<!--- Part 2 -->として投稿しています。
