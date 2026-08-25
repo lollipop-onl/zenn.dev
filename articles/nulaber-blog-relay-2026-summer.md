@@ -8,7 +8,7 @@ published: false
 
 この記事は *ヌーラボブログリレー2026夏* の1日目の2本目として投稿しています。
 
-![ブログリレーのサムネイル](/images/backlog-pr-integration/thumbnail.png)
+![ブログリレーのサムネイル](/images/nulaber-blog-relay-2026-summer/thumbnail.png)
 
 GitHub と Backlog を併用していると、プルリクエストを作ったら課題を「処理中」に、マージしたら「完了」に、と Backlog 側を手で更新することになります。
 
@@ -35,7 +35,7 @@ GitHub と Backlog を併用していると、プルリクエストを作った�
 
 ## ワークフローファイル
 
-以下のワークフローを `.github/workflows/backlog-pr-integration.yml` として作成します。
+以下のワークフローを `.github/workflows/nulaber-blog-relay-2026-summer.yml` として作成します。
 
 ワークフローでは以下の環境変数を使用します。
 
@@ -138,11 +138,11 @@ https://github.com/lollipop-onl/backlog-pr-sync-demo
 
 課題キーで始まるブランチからプルリクエストを作成すると、課題が「処理中」になり、プルリクエストへのリンクがコメントとして残ります。
 
-![プルリクエスト作成時に課題へ投稿されたコメント。状態が未対応から処理中に変わり、プルリクエストへのリンクとブランチ名が記録されている](/images/backlog-pr-integration/comment-on-open.png)
+![プルリクエスト作成時に課題へ投稿されたコメント。状態が未対応から処理中に変わり、プルリクエストへのリンクとブランチ名が記録されている](/images/nulaber-blog-relay-2026-summer/comment-on-open.png)
 
 プルリクエストをマージすると、課題が「完了」になります。
 
-![プルリクエストのマージ時に課題へ投稿されたコメント。状態が処理中から完了に変わり、main にマージされたことが記録されている](/images/backlog-pr-integration/comment-on-merge.png)
+![プルリクエストのマージ時に課題へ投稿されたコメント。状態が処理中から完了に変わり、main にマージされたことが記録されている](/images/nulaber-blog-relay-2026-summer/comment-on-merge.png)
 
 ステータスの変更とコメントが 1 つの履歴にまとまっているので、いつ・どのプルリクエストで状態が変わったのかを後から追いやすくなっています。
 
@@ -216,7 +216,7 @@ https://nulab.github.io/bee/commands/issue/close/
 `customField_` に続く数値はカスタム属性の ID で、 `bee api projects/<PROJECT>/customFields` で確認できます。
 Markdown のプロジェクトであれば、 `[表示名](URL)` 形式の値はカスタム属性でもリンクとして表示されます。
 
-![課題の属性欄に表示されたカスタム属性「関連 PR」。プルリクエストへのリンクがリンクとして表示されている](/images/backlog-pr-integration/custom-field.png)
+![課題の属性欄に表示されたカスタム属性「関連 PR」。プルリクエストへのリンクがリンクとして表示されている](/images/nulaber-blog-relay-2026-summer/custom-field.png)
 
 https://nulab.github.io/bee/commands/api/
 
